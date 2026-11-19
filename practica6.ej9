@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int opcion;
+    cout << "1. Cuadrado" << endl;
+    cout << "2. Circulo" << endl;
+    cout << "3. Triangulo" << endl;
+    cout << "Elija una opcion para calcular el area: ";
+    cin >> opcion;
+
+    if (opcion == 1) {
+        float L;
+        cout << "Ingrese el lado del cuadrado: ";
+        cin >> L;
+        cout << "Area = " << L * L << endl;
+    } else if (opcion == 2) {
+        float R;
+        cout << "Ingrese el radio del circulo: ";
+        cin >> R;
+        cout << "Area = " << 3.14159 * R * R << endl;
+    } else if (opcion == 3) {
+        float B, H;
+        cout << "Ingrese la base y altura del triangulo: ";
+        cin >> B >> H;
+        cout << "Area = " << (B * H) / 2.0 << endl;
+    } else {
+        cout << "Opcion incorrecta." << endl;
+    }
+
+    return 0;
+}
