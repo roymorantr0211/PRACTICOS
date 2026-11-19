@@ -1,0 +1,41 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numero;
+    cout << "Ingrese el numero que representa el tiempo de uso por app: ";
+    cin >> numero;
+
+    if (numero < 0) {
+        numero = -numero;
+    }
+
+    int temp = numero;
+    int sumaTotal = 0;
+    int appsMayor5 = 0;
+    int totalApps = 0;
+
+    if (temp == 0) {
+        totalApps = 1;
+        sumaTotal = 0;
+    } else {
+        while (temp > 0) {
+            int horas = temp % 10;
+            sumaTotal += horas;
+            if (horas > 5) {
+                appsMayor5++;
+            }
+            totalApps++;
+            temp /= 10;
+        }
+    }
+
+    double promedio = (double)sumaTotal / totalApps;
+
+    cout << "Total de horas: " << sumaTotal << "h" << endl;
+    cout << "Cantidad de apps con mas de 5h: " << appsMayor5 << endl;
+    cout << "Promedio de horas por app: " << promedio << "h" << endl;
+
+    return 0;
+}
