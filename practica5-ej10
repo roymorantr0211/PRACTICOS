@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numeroTransacciones;
+    cout << "Ingrese el numero que representa las transacciones: ";
+    cin >> numeroTransacciones;
+
+    if (numeroTransacciones < 0) {
+        numeroTransacciones = -numeroTransacciones;
+    }
+
+    int temp = numeroTransacciones;
+    int transaccionesMayores5 = 0;
+    int totalAcumulado = 0;
+
+    if (temp == 0) {
+        totalAcumulado = 0;
+    } else {
+        while (temp > 0) {
+            int movimiento = temp % 10;
+            totalAcumulado += movimiento;
+            if (movimiento > 5) {
+                transaccionesMayores5++;
+            }
+            temp /= 10;
+        }
+    }
+
+    cout << "\n--- Resumen de Cuenta Bancaria ---" << endl;
+    cout << "Monto total acumulado: " << totalAcumulado << endl;
+    cout << "Cantidad de transacciones mayores a 5: " << transaccionesMayores5 << endl;
+
+    return 0;
+}
