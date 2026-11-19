@@ -1,0 +1,47 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int codigo;
+    int umbralSuma;
+
+    cout << "Ingrese el codigo numerico: ";
+    cin >> codigo;
+    cout << "Ingrese el valor minimo para la suma de digitos: ";
+    cin >> umbralSuma;
+
+    int temp = codigo;
+    if (temp < 0) {
+        temp = -temp;
+    }
+
+    int cantidadPares = 0;
+    int sumaDigitos = 0;
+
+    if (temp == 0) {
+        cantidadPares = 1;
+        sumaDigitos = 0;
+    } else {
+        while (temp > 0) {
+            int digito = temp % 10;
+            if (digito % 2 == 0) {
+                cantidadPares++;
+            }
+            sumaDigitos += digito;
+            temp /= 10;
+        }
+    }
+
+    cout << "\n--- Evaluacion de Seguridad ---" << endl;
+    cout << "Digitos pares encontrados: " << cantidadPares << endl;
+    cout << "Suma total de digitos: " << sumaDigitos << endl;
+
+    if (cantidadPares >= 2 && sumaDigitos > umbralSuma) {
+        cout << "Resultado: EL CODIGO ES SEGURO." << endl;
+    } else {
+        cout << "Resultado: EL CODIGO NO ES SEGURO." << endl;
+    }
+
+    return 0;
+}
