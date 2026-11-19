@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char continuar = 's';
+
+    while (continuar == 's' || continuar == 'S') {
+        float parciales, practico, final_exam;
+        int faltas;
+
+        cout << "Ingrese la nota total de los parciales (sobre 40): ";
+        cin >> parciales;
+        cout << "Ingrese la nota del examen practico (sobre 20): ";
+        cin >> practico;
+        cout << "Ingrese la nota del examen final (sobre 40): ";
+        cin >> final_exam;
+        cout << "Ingrese el numero de faltas del alumno: ";
+        cin >> faltas;
+
+        float limite_faltas = 48.0 * 0.20; 
+        
+        if (faltas > limite_faltas) {
+            cout << "Excede el 20% de faltas. El examen final se anula (0)." << endl;
+            final_exam = 0;
+        }
+
+        float nota_final = parciales + practico + final_exam;
+
+        cout << "Nota final: " << nota_final << endl;
+
+        if (nota_final >= 51) {
+            cout << "Mensaje: Aprobado" << endl;
+        } else {
+            cout << "Mensaje: Reprobado" << endl;
+        }
+
+        cout << "Desea calcular para otro alumno? (s/n): ";
+        cin >> continuar;
+    }
+
+    return 0;
+}
