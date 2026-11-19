@@ -1,0 +1,87 @@
+#include <iostream>
+using namespace std;
+
+string unidades[] = {"cero", "uno", "dos", "tres", "cuatro",
+"cinco", "seis", "siete", "ocho", "nueve"};
+
+string decenas[] = {"", "diez", "veinte", "treinta", "cuarenta",
+"cincuenta", "sesenta", "setenta", "ochenta", "noventa"};
+
+string centenas[] = {"", "ciento", "doscientos", "trescientos",
+"cuatrocientos", "quinientos", "seiscientos",
+"setecientos", "ochocientos", "novecientos"};
+
+string NUMERO(int n) {
+    if (n < 10)
+        return unidades[n];
+
+    if (n < 16) {
+        string especiales[] = {"diez", "once", "doce", "trece",
+        "catorce", "quince"};
+        return especiales[n - 10];
+    }
+
+    if (n < 20)
+        return "dieci" + unidades[n - 10];
+
+    if (n < 30) {
+        if (n == 20) return "veinte";
+        return "veinti" + unidades[n - 20];
+    }
+
+    if (n < 100) {
+        if (n % 10 == 0)
+            return decenas[n / 10];
+
+        return decenas[n / 10] + " y " + unidades[n % 10];
+    }
+
+    if (n == 100)
+        return "cien";
+
+    if (n < 1000) {
+        if (n % 100 == 0)
+            return centenas[n / 100];
+
+        return centenas[n / 100] + " " + NUMERO(n % 100);
+    }
+
+    if (n < 2000) {
+        if (n == 1000) return "mil";
+        return "mil " + NUMERO(n % 1000);
+    }
+
+    if (n < 10000) {
+        return NUMERO(n / 1000) + " mil " +
+        (n % 1000 == 0 ? "" : NUMERO(n % 1000));
+    }
+
+    return "numero fuera de rango";
+}
+
+void LITERAL(int d, int m, int a) {
+    string meses[] = {"", "enero", "febrero", "marzo",
+    "abril", "mayo", "junio", "julio", "agosto",
+    "septiembre", "octubre", "noviembre", "diciembre"};
+
+    cout << NUMERO(d) << " de " << meses[m]
+         << " de " << NUMERO(a);
+}
+
+int main() {
+    int d, m, a;
+
+    cout << "Ingrese dia: ";
+    cin >> d;
+
+    cout << "Ingrese mes: ";
+    cin >> m;
+
+    cout << "Ingrese anio: ";
+    cin >> a;
+
+    cout << "Fecha literal: ";
+    LITERAL(d, m, a);
+
+    return 0;
+}
