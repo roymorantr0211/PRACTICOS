@@ -1,0 +1,30 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    float a, b, c;
+    cout << "Ingrese a, b, c: ";
+    cin >> a >> b >> c;
+
+    if (a == 0) {
+        if (b != 0) {
+            cout << "Ecuacion lineal. x = " << -c / b << endl;
+        } else {
+            cout << "No hay solucion valida o es indeterminada." << endl;
+        }
+    } else {
+        float d = (b * b) - (4 * a * c);
+        if (d > 0) {
+            float x1 = (-b + sqrt(d)) / (2 * a);
+            float x2 = (-b - sqrt(d)) / (2 * a);
+            cout << "Dos soluciones reales: x1=" << x1 << ", x2=" << x2 << endl;
+        } else if (d == 0) {
+            float x = -b / (2 * a);
+            cout << "Una solucion real: x=" << x << endl;
+        } else {
+            cout << "Soluciones imaginarias (complejas)." << endl;
+        }
+    }
+    return 0;
+}
