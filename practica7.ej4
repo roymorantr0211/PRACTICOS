@@ -1,0 +1,47 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+long long FAC(int n) {
+    long long f = 1;
+
+    for (int i = 1; i <= n; i++) {
+        f = f * i;
+    }
+
+    return f;
+}
+
+double POTEN(double x, int n) {
+    return pow(x, n);
+}
+
+double SERIE(double x, int n) {
+    double s = 0;
+    int signo = 1;
+
+    for (int i = 1; i <= n; i++) {
+        int exponente = 2 * i - 1;
+
+        s = s + signo * POTEN(x, exponente) / FAC(exponente);
+
+        signo = signo * (-1);
+    }
+
+    return s;
+}
+
+int main() {
+    double x;
+    int n;
+
+    cout << "Ingrese X: ";
+    cin >> x;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    cout << "La suma es: " << SERIE(x, n);
+
+    return 0;
+}
