@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+long long FAC(int n) {
+    long long f = 1;
+
+    for (int i = 1; i <= n; i++) {
+        f = f * i;
+    }
+
+    return f;
+}
+
+int main() {
+    int n, r;
+    long long C;
+
+    cout << "Ingrese N: ";
+    cin >> n;
+
+    cout << "Ingrese R: ";
+    cin >> r;
+
+    if (n >= 0 && r >= 0 && r <= n) {
+        C = FAC(n) / (FAC(r) * FAC(n-r));
+
+        cout << "Combinatorio: " << C;
+    }
+    else {
+        cout << "Valores incorrectos";
+    }
+
+    return 0;
+}
