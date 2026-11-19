@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    cout << "Ingrese un numero menor a 10000: ";
+    cin >> N;
+
+    if (N >= 0 && N < 10000) {
+        int m = N / 1000;
+        int resto = N % 1000;
+        int c = resto / 100;
+        resto = resto % 100;
+        int d = resto / 10;
+        int u = resto % 10;
+
+        cout << "Unidades de mil (m): " << m << endl;
+        cout << "Centenas (c): " << c << endl;
+        cout << "Decenas (d): " << d << endl;
+        cout << "Unidades (u): " << u << endl;
+    } else {
+        cout << "Numero fuera de rango." << endl;
+    }
+
+    return 0;
+}
