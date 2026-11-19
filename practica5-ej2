@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numero;
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    int temp = numero;
+    bool esNegativo = false;
+    if (temp < 0) {
+        esNegativo = true;
+        temp = -temp;
+    }
+
+    int invertido = 0;
+    while (temp > 0) {
+        int digito = temp % 10;
+        invertido = (invertido * 10) + digito;
+        temp /= 10;
+    }
+
+    if (esNegativo) {
+        invertido = -invertido;
+    }
+
+    cout << "El numero invertido es: " << invertido << endl;
+
+    return 0;
+}
