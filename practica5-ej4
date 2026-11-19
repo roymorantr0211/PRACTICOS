@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int numero;
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    int original = numero;
+    int temp = numero;
+    if (temp < 0) {
+        temp = -temp;
+    }
+
+    int invertido = 0;
+    while (temp > 0) {
+        int digito = temp % 10;
+        invertido = (invertido * 10) + digito;
+        temp /= 10;
+    }
+
+    if (original < 0) {
+        invertido = -invertido;
+    }
+
+    if (original == invertido) {
+        cout << "El numero " << original << " es capicua." << endl;
+    } else {
+        cout << "El numero " << original << " NO es capicua." << endl;
+    }
+
+    return 0;
+}
