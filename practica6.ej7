@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    float a, b, c, d, e, f;
+    cout << "Ingrese coeficientes de la primera ecuacion (a, b, c): ";
+    cin >> a >> b >> c;
+    cout << "Ingrese coeficientes de la segunda ecuacion (d, e, f): ";
+    cin >> d >> e >> f;
+
+    float determinante = (a * e) - (b * d);
+    float det_x = (c * e) - (b * f);
+    float det_y = (a * f) - (c * d);
+
+    if (determinante != 0) {
+        float x = det_x / determinante;
+        float y = det_y / determinante;
+        cout << "Solucion unica: X = " << x << ", Y = " << y << endl;
+        cout << "Existen 1 tipo de solucion (unica)." << endl;
+    } else {
+        if (det_x == 0 && det_y == 0) {
+            cout << "Existen infinitas soluciones." << endl;
+        } else {
+            cout << "No existe solucion." << endl;
+        }
+    }
+    return 0;
+}
